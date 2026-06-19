@@ -1042,17 +1042,72 @@
     }
 
     /* ── RESPONSIVE ── */
+    html, body { overflow-x: hidden; }
+
     @media (max-width: 900px) {
+      /* NAV */
+      nav { padding: 0 20px; }
       nav ul { display: none; }
-      .hero-content { padding: 0 24px 60px; }
+      .nav-id { font-size: 0.6rem; }
+
+      /* HERO */
+      .hero-title { font-size: clamp(3rem, 18vw, 5rem); letter-spacing: 0; }
+      .hero-content { padding: 0 20px 50px; }
       .hero-corner { display: none; }
-      .branches-grid { grid-template-columns: repeat(3, 1fr); }
-      .programs-grid,
-      .ops-inner,
-      .meal-header,
-      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-slash, .hero-slash-2 { display: none; }
+      .hero-mono { font-size: 0.55rem; letter-spacing: 1px; }
+      .hero-coords { display: none; }
+      .hero-tagline { font-size: 0.65rem; letter-spacing: 2px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+      /* GLOBAL SECTION PADDING */
+      .branches, .programs, .schedule, .ops-board, .meal-section, .portal-cta, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+      .ops-board { padding-top: 80px; clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%); }
+      .branches { padding-bottom: 80px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), 0 100%); }
+
+      /* HEADINGS */
+      .section-heading { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+      .ops-header .section-heading { font-size: clamp(3rem, 14vw, 5rem); }
+
+      /* BRANCHES */
+      .branches-header { flex-direction: column; gap: 20px; }
+      .branches-desc { text-align: left; max-width: 100%; }
+      .branches-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+      .branch-tile { padding: 20px 10px; gap: 10px; }
+      .branch-tile img { width: 48px; height: 48px; }
+      .branch-name { font-size: 0.7rem; letter-spacing: 1px; }
+      .branch-motto { display: none; }
+
+      /* PROGRAMS */
+      .programs-grid { grid-template-columns: 1fr; gap: 40px; }
+      .programs-sidebar .section-heading { font-size: clamp(2.5rem, 10vw, 4rem); }
+
+      /* SCHEDULE */
+      .schedule-grid { grid-template-columns: 1fr; }
+      .sched-block.specialty[style] { grid-column: span 1; }
+
+      /* ROAD TO 1776 */
+      .ops-inner { grid-template-columns: 1fr; gap: 40px; }
+      .ops-board::after { font-size: 50vw; }
+
+      /* MEAL */
+      .meal-header { grid-template-columns: 1fr; gap: 24px; }
       .meal-cards { grid-template-columns: 1fr; }
-      section, .branches, .programs, .ops-board, .meal-section, .portal-cta { padding-left: 24px; padding-right: 24px; }
+
+      /* FOOTER */
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .branches-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-title { font-size: clamp(2.8rem, 20vw, 4rem); }
+      .btn-combat { padding: 12px 28px; font-size: 0.95rem; }
     }
   </style>
 </head>
